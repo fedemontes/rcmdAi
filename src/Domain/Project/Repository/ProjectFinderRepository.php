@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\Customer\Repository;
+namespace App\Domain\Project\Repository;
 
 use App\Factory\QueryFactory;
 
-final class CustomerFinderRepository
+final class ProjectFinderRepository
 {
     private QueryFactory $queryFactory;
 
@@ -13,7 +13,7 @@ final class CustomerFinderRepository
         $this->queryFactory = $queryFactory;
     }
 
-    public function findCustomers(): array
+    public function findProjects(): array
     {
         $query = $this->queryFactory->newSelect('apikeys');
 

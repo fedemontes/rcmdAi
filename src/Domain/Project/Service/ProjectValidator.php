@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Domain\Customer\Service;
+namespace App\Domain\Project\Service;
 
 use App\Support\Validation\ValidationException;
 use Cake\Validation\Validator;
 
-final class CustomerValidator
+final class ProjectValidator
 {
-    public function validateCustomer(array $data): void
+    public function validateProject(array $data): void
     {
         $validator = new Validator();
         $validator

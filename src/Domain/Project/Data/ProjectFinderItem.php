@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain\Customer\Data;
+namespace App\Domain\Project\Data;
 
 /**
  * DTO.
  */
-final class CustomerFinderItem
+final class ProjectFinderItem
 {
     public ?int $id = null;
 

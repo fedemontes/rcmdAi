@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain\Customer\Data;
+namespace App\Domain\Project\Data;
 
 /**
  * DTO.
  */
-final class CustomerReaderResult
+final class ProjectReaderResult
 {
     public ?int $id = null;
 
