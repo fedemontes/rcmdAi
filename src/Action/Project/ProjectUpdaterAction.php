@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Action\Customer;
+namespace App\Action\Project;
 
-use App\Domain\Customer\Service\CustomerUpdater;
+use App\Domain\Project\Service\ProjectUpdater;
 use App\Renderer\JsonRenderer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class CustomerUpdaterAction
+final class ProjectUpdaterAction
 {
-    private CustomerUpdater $customerUpdater;
+    private ProjectUpdater $ProjectUpdater;
 
     private JsonRenderer $renderer;
 
-    public function __construct(CustomerUpdater $customerUpdater, JsonRenderer $jsonRenderer)
+    public function __construct(ProjectUpdater $ProjectUpdater, JsonRenderer $jsonRenderer)
     {
-        $this->customerUpdater = $customerUpdater;
+        $this->ProjectUpdater = $ProjectUpdater;
         $this->renderer = $jsonRenderer;
     }
 
@@ -25,11 +25,11 @@ final class CustomerUpdaterAction
         array $args
     ): ResponseInterface {
         // Extract the form data from the request body
-        $customerId = (int)$args['customer_id'];
+        $ProjectId = (int)$args['Project_id'];
         $data = (array)$request->getParsedBody();
 
         // Invoke the Domain with inputs and retain the result
-        $this->customerUpdater->updateCustomer($customerId, $data);
+        $this->ProjectUpdater->updateProject($ProjectId, $data);
 
         // Build the HTTP response
         return $this->renderer->json($response);
