@@ -1,50 +1,50 @@
 <?php
 
-namespace App\Domain\Project\Service;
+namespace App\Domain\Customer\Service;
 
-use App\Domain\Project\Repository\ProjectRepository;
+use App\Domain\Customer\Repository\CustomerRepository;
 use App\Factory\LoggerFactory;
 use DomainException;
 use Psr\Log\LoggerInterface;
 
-final class ProjectUpdater
+final class CustomerUpdater
 {
-    private ProjectRepository $repository;
+    private CustomerRepository $repository;
 
-    private ProjectValidator $ProjectValidator;
+    private CustomerValidator $customerValidator;
 
     private LoggerInterface $logger;
 
     public function __construct(
-        ProjectRepository $repository,
-        ProjectValidator $ProjectValidator,
+        CustomerRepository $repository,
+        CustomerValidator $customerValidator,
         LoggerFactory $loggerFactory
     ) {
         $this->repository = $repository;
-        $this->ProjectValidator = $ProjectValidator;
+        $this->customerValidator = $customerValidator;
         $this->logger = $loggerFactory
-            ->addFileHandler('Project_updater.log')
+            ->addFileHandler('customer_updater.log')
             ->createLogger();
     }
 
-    public function updateProject(int $ProjectId, array $data): void
+    public function updateCustomer(int $customerId, array $data): void
     {
         // Input validation
-        $this->validateProjectUpdate($ProjectId, $data);
+        $this->validateCustomerUpdate($customerId, $data);
 
         // Update the row
-        $this->repository->updateProject($ProjectId, $data);
+        $this->repository->updateCustomer($customerId, $data);
 
         // Logging
-        $this->logger->info(sprintf('Project updated successfully: %s', $ProjectId));
+        $this->logger->info(sprintf('Customer updated successfully: %s', $customerId));
     }
 
-    public function validateProjectUpdate(int $ProjectId, array $data): void
+    public function validateCustomerUpdate(int $customerId, array $data): void
     {
-        if (!$this->repository->existsProjectId($ProjectId)) {
-            throw new DomainException(sprintf('Project not found: %s', $ProjectId));
+        if (!$this->repository->existsCustomerId($customerId)) {
+            throw new DomainException(sprintf('Customer not found: %s', $customerId));
         }
 
-        $this->ProjectValidator->validateProject($data);
+        $this->customerValidator->validateCustomer($data);
     }
 }

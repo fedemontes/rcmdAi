@@ -20,10 +20,10 @@ final class ProjectFinderRepository
         $query->select(
             [
                 'id',
-                'user',
                 'email',
-                'apikey',
-                'alta',
+                'descripcion',
+                'sector',
+                
             ]
         );
 

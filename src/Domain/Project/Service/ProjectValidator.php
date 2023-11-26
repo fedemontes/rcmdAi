@@ -15,28 +15,11 @@ final class ProjectValidator
             ->notEmptyString('number', 'Input required')
             ->maxLength('number', 10, 'Too long')
             ->naturalNumber('number', 'Invalid number')
-            ->requirePresence('name', true, 'Input required')
-            ->notEmptyString('name', 'Input required')
-            ->maxLength('name', 255, 'Too long')
-            ->requirePresence('street', true, 'Input required')
-            ->notEmptyString('street', 'Input required')
-            ->maxLength('street', 255, 'Too long')
-            ->requirePresence('postal_code', true, 'Input required')
-            ->notEmptyString('postal_code', 'Input required')
-            ->maxLength('postal_code', 10, 'Too long')
-            ->requirePresence('city', true, 'Input required')
-            ->notEmptyString('city', 'Input required')
-            ->maxLength('city', 255, 'Too long')
-            ->requirePresence('country', true, 'Input required')
-            ->notEmptyString('country', 'Input required')
-            ->maxLength('country', 2, 'Too long')
-            ->requirePresence('country', true, 'Input required')
-            ->notEmptyString('country', 'Input required')
-            ->maxLength('country', 2, 'Must be exact 2 characters')
-            ->minLength('country', 2, 'Must be exact 2 characters')
             ->requirePresence('email', true, 'Input required')
             ->notEmptyString('email', 'Input required')
             ->email('email', false, 'Invalid email address');
+            ->requirePresence('descripcion', true, 'Input required')
+            ->notEmptyString('descripcion', 'Input required');
 
         $errors = $validator->validate($data);
 

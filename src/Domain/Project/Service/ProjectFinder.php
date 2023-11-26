@@ -32,10 +32,9 @@ final class ProjectFinder
         foreach ($ProjectRows as $ProjectRow) {
             $Project = new ProjectFinderItem();
             $Project->id = $ProjectRow['id'];
-            $Project->user = $ProjectRow['user'];
             $Project->email = $ProjectRow['email'];
-            $Project->apikey = $ProjectRow['apikey'];
-            $Project->alta = $ProjectRow['alta'];
+            $Project->apikey = $ProjectRow['descripcion'];
+            $Project->alta = $ProjectRow['sector'];
          
             $result->Projects[] = $Project;
         }
