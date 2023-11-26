@@ -33,8 +33,8 @@ final class ProjectFinder
             $Project = new ProjectFinderItem();
             $Project->id = $ProjectRow['id'];
             $Project->email = $ProjectRow['email'];
-            $Project->apikey = $ProjectRow['descripcion'];
-            $Project->alta = $ProjectRow['sector'];
+            $Project->descripcion = $ProjectRow['descripcion'];
+            $Project->sector = $ProjectRow['sector'];
          
             $result->Projects[] = $Project;
         }
