@@ -15,7 +15,7 @@ final class ProjectFinderRepository
 
     public function findProjects(): array
     {
-        $query = $this->queryFactory->newSelect('apikeys');
+        $query = $this->queryFactory->newSelect('projects');
 
         $query->select(
             [
