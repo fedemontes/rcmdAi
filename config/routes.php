@@ -18,10 +18,10 @@ return function (App $app)  {
         '/api/v1',
         function (RouteCollectorProxy $app) {
 
-               $app->get('/customers', \App\Action\Customer\CustomerFinderAction::class);
-               $app->get('/customers/{customer_id}', \App\Action\Customer\CustomerReaderAction::class);
-               $app->put('/customers/{customer_id}', \App\Action\Customer\CustomerUpdaterAction::class);
-               $app->delete('/customers/{customer_id}', \App\Action\Customer\CustomerDeleterAction::class);
+               $app->get('/Projects', \App\Action\Project\ProjectFinderAction::class);
+               $app->get('/Projects/{Project_id}', \App\Action\Project\ProjectReaderAction::class);
+               $app->put('/Projects/{Project_id}', \App\Action\Project\ProjectUpdaterAction::class);
+               $app->delete('/Projects/{Project_id}', \App\Action\Project\ProjectDeleterAction::class);
 
 	 }
     );
