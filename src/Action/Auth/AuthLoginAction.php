@@ -71,8 +71,6 @@ final class AuthLoginAction
 		    print $this->session->getId();
 		    $this->session->set('sha1', $cookie);
 		    $_SESSION['sha1'] = $cookie;
-		    print_r($this->session);
-		    print "->".$this->session->get('sha1');
 		    $this->session->save();
 	 	  }
 

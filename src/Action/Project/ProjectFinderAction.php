@@ -21,7 +21,7 @@ final class ProjectFinderAction
     {
         $this->ProjectFinder = $ProjectFinder;
         $this->renderer       = $jsonRenderer;
-	$this->session        = $session;
+	    $this->session        = $session;
     }
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
