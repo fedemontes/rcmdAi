@@ -41,19 +41,16 @@ final class ProjectFinderAction
        // Create a standard session handler
 	// 
 
-	/*
+	
         foreach ($result->Projects as $Project) {
             $Projects[] = [
                 'id' => $Project->id,
-                'user' => $Project->user,
                 'email' => $Project->email,
-                'apikey' => $Project->apikey,
-                'alta' => $Project->alta,
-		'decode' => JWT::decode($Project->apikey,"Az5JVxmHYCHCkjre1tb43-dp1LhGgjtHlgS", ["HS256", "HS512", "HS384", "RS256"] ),
-		'env' => $_ENV['SECRET_KEY_JWT']
+                'descripcion' => $Project->descripcon,
+                'sector' => $Project->sectr,
             ];
         }
-	 */
+	 
 
         return [
             'projects' => $Projects,
