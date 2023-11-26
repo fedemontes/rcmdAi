@@ -46,8 +46,8 @@ final class ProjectFinderAction
             $Projects[] = [
                 'id' => $Project->id,
                 'email' => $Project->email,
-                'descripcion' => $Project->descripcon,
-                'sector' => $Project->sectr,
+                'descripcion' => $Project->descripcion,
+                'sector' => $Project->sector,
             ];
         }
 	 
