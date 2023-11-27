@@ -35,15 +35,27 @@ final class ProjectCreator
         $yourApiKey = $_ENV['OPENAI_EKY'];
         $client = OpenAI::client($yourApiKey);
 
+        $proyecto           = $data['proyecto'];
+        $perfil_ideal       = $data['perfil_ideal'];
+        $horas              = isset ( $data['horas'] ? $data['horas'] : 300;
+        $perfil_alumm       = $data['perfil_alumnado'];
+        list($menor,$mayor) = array_pad (explode("-", $data['tamano']), 2 ) ;
+        $tamano             = "entre $menor y $mayor empleados";
+        $sector             = $data['sector'];
+        $vision             = $data['vision'];
+        $publico_obj        = $data['publico_objetivo'];
+        $proyecto_obj       = $data['proyecto_objetivo'];
+        $sostenibilidad     = $data['sostenibilidad'];
+
         $content = <<<HEREDOC
-        Actúa como un especialista en $data['perfil_ideal'] que lleva  20 años trabajando. 
-        Quiero un proyecto trabajo final de grado de $data['horas'] horas de $data['perfil_alumnado'] para una empresa con 
-        tamaño de $data['tamano']. El proyecto quiero que tenga impacto sostenible.  
-        La empresa es del sector de la $data['sector'] y realiza $data['vision'].  
-        El público objetivo son $data['publico_objetivo']. 
-        El objetivo del proyecto es $data['proyecto_objetivo'].  
+        Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
+        Quiero un proyecto trabajo final de grado de $horas horas de $perfil_alumn para una empresa con 
+        tamaño de $tamano. El proyecto quiero que tenga impacto sostenible.  
+        La empresa es del sector de la $sector' y realiza $vision'.  
+        El público objetivo son $publico_obj. 
+        El objetivo del proyecto es $proyecto_obj.  
         La empresa no ha hecho nada similar a esto antes. La empresa quiere utilizar tecnologías emergentes.
-        Además también usar $data['sostenibilidad']. Quiero que definas con contenido específico las fases del proyecto.
+        Además también usar $sostenibilidad. Quiero que definas con contenido específico las fases del proyecto.
         Quiero una planificación aproximada. Quiero una orientación de KPI para evaluar el impacto del mismo. 
         Pónmelo todo en un lenguaje cercano y motivador para un público joven.  Índícame marcas de referencia de la
         competencia que hay a nivel europeo y su link a la web. Si hay presencia de redes sociales, por favor, 
