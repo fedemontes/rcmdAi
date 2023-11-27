@@ -80,7 +80,7 @@ final class ProjectCreator
         ]);
 
         $Projecte = [];
-        $Projecte['email'] = isset ($_SESSION['email'] ) ? $_SESSION['email'] ? "";
+        $Projecte['email'] = isset ($_SESSION['email'] ) ? $_SESSION['email'] : "";
 
         $message = $response->choices[0]->message->content;
         $Projecte['descripcion']          = $message;
