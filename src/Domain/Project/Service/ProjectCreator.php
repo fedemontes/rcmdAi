@@ -67,8 +67,8 @@ final class ProjectCreator
               'model' => 'gpt-4',
                  'messages' => [
                     ['role' => 'user', 
-                    'content' => $content,
-                 ],
+                    'content' => $content ],
+                    ],
         ]);
 
          return $result->choices[0]->message->content;
