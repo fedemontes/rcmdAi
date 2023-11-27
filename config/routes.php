@@ -19,7 +19,7 @@ return function (App $app)  {
         function (RouteCollectorProxy $app) {
 
                $app->get('/projects', \App\Action\Project\ProjectFinderAction::class);
-               $app->get('/projects/all}', \App\Action\Project\ProjectReaderAction::class);
+               $app->get('/projects/all', \App\Action\Project\ProjectReaderAction::class);
 
 	 }
     );
