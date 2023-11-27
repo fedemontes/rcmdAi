@@ -16,14 +16,14 @@ final class ProjectRepository
 
     public function insertProject(array $Project): int
     {
-        return (int)$this->queryFactory->newInsert('Projects', $this->toRow($Project))
+        return (int)$this->queryFactory->newInsert('projects', $this->toRow($Project))
             ->execute()
             ->lastInsertId();
     }
 
     public function getProjectById(int $ProjectId): array
     {
-        $query = $this->queryFactory->newSelect('Projects');
+        $query = $this->queryFactory->newSelect('projects');
         $query->select(
             [
                 'id',
@@ -48,14 +48,14 @@ final class ProjectRepository
     {
         $row = $this->toRow($Project);
 
-        $this->queryFactory->newUpdate('Projects', $row)
+        $this->queryFactory->newUpdate('projects', $row)
             ->where(['id' => $ProjectId])
             ->execute();
     }
 
     public function existsProjectId(int $ProjectId): bool
     {
-        $query = $this->queryFactory->newSelect('Projects');
+        $query = $this->queryFactory->newSelect('projects');
         $query->select('id')->where(['id' => $ProjectId]);
 
         return (bool)$query->execute()->fetch('assoc');
@@ -63,7 +63,7 @@ final class ProjectRepository
 
     public function deleteProjectById(int $ProjectId): void
     {
-        $this->queryFactory->newDelete('Projects')
+        $this->queryFactory->newDelete('projects')
             ->where(['id' => $ProjectId])
             ->execute();
     }
