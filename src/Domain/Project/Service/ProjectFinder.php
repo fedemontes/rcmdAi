@@ -34,7 +34,7 @@ final class ProjectFinder
             $Project->id = $ProjectRow['id'];
             $Project->email = $ProjectRow['email'];
             $Project->descripcion = $ProjectRow['descripcion'];
-            $Project->sector = $ProjectRow['arguments'];
+            $Project->arguments = $ProjectRow['arguments'];
          
             $result->Projects[] = $Project;
         }
