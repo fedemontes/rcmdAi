@@ -6,6 +6,7 @@ use App\Domain\Project\Repository\ProjectRepository;
 use App\Factory\LoggerFactory;
 use Psr\Log\LoggerInterface;
 use OpenAI;
+use OpenAI\Responses\Chat\CreateResponse; 
 
 final class ProjectCreator
 {
@@ -27,7 +28,7 @@ final class ProjectCreator
             ->createLogger();
     }
 
-    public function createProject(array $data): string 
+    public function createProject(array $data): CreateResponse 
     {
         // Input validation
         $this->ProjectValidator->validateProject($data);
@@ -65,15 +66,16 @@ final class ProjectCreator
         Recuerda que es un trabajo final de grado y que esto lo hará un estudiante.
         OPENAI_CONTENT;
 
-        $result = $client->chat()->create([
+        $response = $client->chat()->create([
               'model' => 'gpt-4',
                  'messages' => [
                     ['role' => 'user', 
                     'content' => $content ],
                     ],
         ]);
-
-         return $result->choices[0]->message->content;
+       
+        }
+         return $response;
 
         // Insert Project and get new Project ID
         //$ProjectId = $this->repository->insertProject($data);
