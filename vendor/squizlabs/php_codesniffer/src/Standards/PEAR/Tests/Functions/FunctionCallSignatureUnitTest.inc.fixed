@@ -486,7 +486,7 @@ $componentType = $this->componentTypeRepository->findByType($this->identifier) ?
 return [
     'export-path' => 'exports/database/'
         . env(
-            'APP_CUSTOMER',
+            'APP_Project',
             'not-configured'
         )
         . '/' . env(

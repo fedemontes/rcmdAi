@@ -11,10 +11,6 @@ final class ProjectValidator
     {
         $validator = new Validator();
         $validator
-            ->requirePresence('number', true, 'Input required')
-            ->notEmptyString('number', 'Input required')
-            ->maxLength('number', 10, 'Too long')
-            ->naturalNumber('number', 'Invalid number')
             ->requirePresence('email', true, 'Input required')
             ->notEmptyString('email', 'Input required')
             ->email('email', false, 'Invalid email address');

@@ -15,7 +15,7 @@ Thankfully, the `php-amqplib/php-amqplib` component allows you to
 easily create queued jobs that may be processed in the background. 
 By moving time intensive tasks to a queue, your application can 
 respond to web requests with blazing speed and provide a better 
-user experience to your customers.
+user experience to your Projects.
 
 **Read more**
 

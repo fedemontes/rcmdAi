@@ -5,9 +5,9 @@ namespace App\Test\Fixture;
 /**
  * Fixture.
  */
-class CustomerFixture
+class ProjectFixture
 {
-    public string $table = 'customers';
+    public string $table = 'Projects';
 
     public array $records = [
         [

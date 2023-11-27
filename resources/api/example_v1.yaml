@@ -23,24 +23,24 @@ servers:
   - url: 'https://example.com/api/v1'
     description: Production
 tags:
-  - name: Customer
+  - name: Project
 security:
   - BasicAuth: []
 paths:
-  '/customers':
+  '/Projects':
     get:
       tags:
-        - Customer
-      summary: List customers
+        - Project
+      summary: List Projects
       description: 'My description.'
-      operationId: findCustomers
+      operationId: findProjects
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Customers'
+                $ref: '#/components/schemas/Projects'
         '400':
           $ref: '#/components/responses/400'
         '403':
@@ -51,16 +51,16 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - Customer
-      summary: Create customer
+        - Project
+      summary: Create Project
       description: 'My description.'
-      operationId: createCustomer
+      operationId: createProject
       requestBody:
         description: Created
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Customer'
+              $ref: '#/components/schemas/Project'
       responses:
         '201':
           description: Created
@@ -69,7 +69,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  customer_id:
+                  Project_id:
                     type: integer
                     format: int32
                     example: 10
@@ -81,15 +81,15 @@ paths:
           $ref: '#/components/responses/422'
         '500':
           $ref: '#/components/responses/500'
-  '/customers/{customer_id}':
+  '/Projects/{Project_id}':
     get:
       tags:
-        - Customer
-      summary: Get customer
+        - Project
+      summary: Get Project
       description: 'My description.'
-      operationId: getCustomerById
+      operationId: getProjectById
       parameters:
-        - name: customer_id
+        - name: Project_id
           in: path
           description: 'The ID that needs to be fetched.'
           required: true
@@ -101,7 +101,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Customer'
+                $ref: '#/components/schemas/Project'
         '400':
           $ref: '#/components/responses/400'
         '403':
@@ -112,23 +112,23 @@ paths:
           $ref: '#/components/responses/500'
     put:
       tags:
-        - Customer
-      summary: Update customer
+        - Project
+      summary: Update Project
       description: 'My description.'
-      operationId: updateCustomer
+      operationId: updateProject
       parameters:
-        - name: customer_id
+        - name: Project_id
           in: path
           description: ID that need to be deleted
           required: true
           schema:
             type: string
       requestBody:
-        description: Update an existent customer
+        description: Update an existent Project
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Customer'
+              $ref: '#/components/schemas/Project'
       responses:
         '200':
           $ref: '#/components/responses/200'
@@ -142,12 +142,12 @@ paths:
           $ref: '#/components/responses/500'
     delete:
       tags:
-        - Customer
-      summary: Delete customer
+        - Project
+      summary: Delete Project
       description: 'My description.'
-      operationId: deleteCustomer
+      operationId: deleteProject
       parameters:
-        - name: customer_id
+        - name: Project_id
           in: path
           description: The ID that needs to be deleted
           required: true
@@ -282,10 +282,10 @@ components:
               details:
                 - message: Barakuda is currently under maintenance.
   schemas:
-    Customer:
+    Project:
       type: object
       properties:
-        customer_id:
+        Project_id:
           type: integer
           format: int32
           example: 10
@@ -310,15 +310,15 @@ components:
         email:
           type: string
           example: name@example.com
-    Customers:
+    Projects:
       required:
-        - customers
+        - Projects
       properties:
-        customers:
+        Projects:
           type: array
-          description: List of customers
+          description: List of Projects
           items:
-            $ref: '#/components/schemas/Customer'
+            $ref: '#/components/schemas/Project'
     Error:
       required:
         - error

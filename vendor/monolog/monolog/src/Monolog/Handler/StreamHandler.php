@@ -122,7 +122,7 @@ class StreamHandler extends AbstractProcessingHandler
             }
             $this->createDir($url);
             $this->errorMessage = null;
-            set_error_handler([$this, 'customErrorHandler']);
+            set_error_handler([$this, 'ProjectrorHandler']);
             try {
                 $stream = fopen($url, 'a');
                 if ($this->filePermission !== null) {
@@ -162,7 +162,7 @@ class StreamHandler extends AbstractProcessingHandler
         fwrite($stream, (string) $record->formatted);
     }
 
-    private function customErrorHandler(int $code, string $msg): bool
+    private function ProjectrorHandler(int $code, string $msg): bool
     {
         $this->errorMessage = preg_replace('{^(fopen|mkdir)\(.*?\): }', '', $msg);
 
@@ -193,7 +193,7 @@ class StreamHandler extends AbstractProcessingHandler
         $dir = $this->getDirFromStream($url);
         if (null !== $dir && !is_dir($dir)) {
             $this->errorMessage = null;
-            set_error_handler([$this, 'customErrorHandler']);
+            set_error_handler([$this, 'ProjectrorHandler']);
             $status = mkdir($dir, 0777, true);
             restore_error_handler();
             if (false === $status && !is_dir($dir) && strpos((string) $this->errorMessage, 'File exists') === false) {

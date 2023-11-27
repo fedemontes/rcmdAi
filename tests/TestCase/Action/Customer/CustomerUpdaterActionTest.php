@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Test\TestCase\Action\Customer;
+namespace App\Test\TestCase\Action\Project;
 
-use App\Test\Fixture\CustomerFixture;
+use App\Test\Fixture\ProjectFixture;
 use App\Test\Traits\AppTestTrait;
 use Cake\Chronos\Chronos;
 use Fig\Http\Message\StatusCodeInterface;
@@ -12,22 +12,22 @@ use Selective\TestTrait\Traits\DatabaseTestTrait;
 /**
  * Test.
  *
- * @coversDefaultClass \App\Action\Customer\CustomerUpdaterAction
+ * @coversDefaultClass \App\Action\Project\ProjectUpdaterAction
  */
-class CustomerUpdaterActionTest extends TestCase
+class ProjectUpdaterActionTest extends TestCase
 {
     use AppTestTrait;
     use DatabaseTestTrait;
 
-    public function testUpdateCustomer(): void
+    public function testUpdateProject(): void
     {
         Chronos::setTestNow('2021-02-01 00:00:00');
 
-        $this->insertFixtures([CustomerFixture::class]);
+        $this->insertFixtures([ProjectFixture::class]);
 
         $request = $this->createJsonRequest(
             'PUT',
-            '/api/customers/1',
+            '/api/Projects/1',
             [
                 'number' => '19999',
                 'name' => 'New name',
@@ -46,7 +46,7 @@ class CustomerUpdaterActionTest extends TestCase
         $this->assertJsonContentType($response);
 
         // Check logger
-        $this->assertTrue($this->getLogger()->hasInfoThatContains('Customer updated successfully'));
+        $this->assertTrue($this->getLogger()->hasInfoThatContains('Project updated successfully'));
 
         // Check database
         $expected = [
@@ -60,16 +60,16 @@ class CustomerUpdaterActionTest extends TestCase
             'email' => 'new@example.com',
         ];
 
-        $this->assertTableRow($expected, 'customers', 1);
+        $this->assertTableRow($expected, 'Projects', 1);
     }
 
-    public function testCreateCustomerValidation(): void
+    public function testCreateProjectValidation(): void
     {
-        $this->insertFixtures([CustomerFixture::class]);
+        $this->insertFixtures([ProjectFixture::class]);
 
         $request = $this->createJsonRequest(
             'PUT',
-            '/api/customers/1',
+            '/api/Projects/1',
             [
                 'number' => '',
                 'name' => '',

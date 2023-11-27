@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Test\TestCase\Action\Customer;
+namespace App\Test\TestCase\Action\Project;
 
 use App\Test\Traits\AppTestTrait;
 use Cake\Chronos\Chronos;
@@ -11,20 +11,20 @@ use Selective\TestTrait\Traits\DatabaseTestTrait;
 /**
  * Test.
  *
- * @coversDefaultClass \App\Action\Customer\CustomerCreatorAction
+ * @coversDefaultClass \App\Action\Project\ProjectCreatorAction
  */
-class CustomerCreatorActionTest extends TestCase
+class ProjectCreatorActionTest extends TestCase
 {
     use AppTestTrait;
     use DatabaseTestTrait;
 
-    public function testCreateCustomer(): void
+    public function testCreateProject(): void
     {
         Chronos::setTestNow('2021-01-01 00:00:00');
 
         $request = $this->createJsonRequest(
             'POST',
-            '/api/customers',
+            '/api/Projects',
             [
                 'number' => '10000',
                 'name' => 'Coho Winery',
@@ -41,15 +41,15 @@ class CustomerCreatorActionTest extends TestCase
         // Check response
         $this->assertSame(StatusCodeInterface::STATUS_CREATED, $response->getStatusCode());
         $this->assertJsonContentType($response);
-        $this->assertJsonData(['customer_id' => 1], $response);
+        $this->assertJsonData(['Project_id' => 1], $response);
 
         // Check logger
         // No logger errors
         $this->assertSame([], $this->getLoggerErrors());
-        $this->assertTrue($this->getLogger()->hasInfoThatContains('Customer created successfully: 1'));
+        $this->assertTrue($this->getLogger()->hasInfoThatContains('Project created successfully: 1'));
 
         // Check database
-        $this->assertTableRowCount(1, 'customers');
+        $this->assertTableRowCount(1, 'Projects');
 
         $expected = [
             'id' => '1',
@@ -62,14 +62,14 @@ class CustomerCreatorActionTest extends TestCase
             'email' => 'im.glynn@example.net',
         ];
 
-        $this->assertTableRow($expected, 'customers', 1);
+        $this->assertTableRow($expected, 'Projects', 1);
     }
 
-    public function testCreateCustomerValidation(): void
+    public function testCreateProjectValidation(): void
     {
         $request = $this->createJsonRequest(
             'POST',
-            '/api/customers',
+            '/api/Projects',
             [
                 'number' => '',
                 'name' => '',
