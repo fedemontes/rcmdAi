@@ -37,7 +37,7 @@ final class ProjectCreator
 
         $content <<<OPENAI_CONTENT
         "Actúa como un especialista en $data['perfil_ideal'] que lleva  20 años trabajando. 
-        Quiero un proyecto trabajo final de grado de $data['horas'] horas de $data['perfil_alumando'] para una empresa con 
+        Quiero un proyecto trabajo final de grado de $data['horas'] horas de $data['perfil_alumnado'] para una empresa con 
         tamaño de $data['tamano']. El proyecto quiero que tenga impacto sostenible.  
         La empresa es del sector de la $data['sector'] y realiza $data['vision'].  
         El público objetivo son $data['publico_objetivo']. 
