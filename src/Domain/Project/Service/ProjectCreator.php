@@ -40,7 +40,8 @@ final class ProjectCreator
         $perfil_ideal       = $data['perfil_ideal'];
         $horas              = isset ( $data['horas'] )? $data['horas'] : 300;
         $perfil_alumm       = @$data['perfil_alumnado'];
-        list($menor,$mayor) = array_pad (explode(",", $data['tamano']),  ) ;
+        $menor              = @intval(strtok($data['tamano'],","));
+        $mayor              = @intval(strtok(","));
         $tamano             = "entre $menor y $mayor empleados";
         $sector             = $data['sector'];
         $vision             = $data['vision'];
