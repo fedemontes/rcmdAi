@@ -6,7 +6,8 @@ use App\Domain\Project\Repository\ProjectRepository;
 use App\Factory\LoggerFactory;
 use Psr\Log\LoggerInterface;
 use OpenAI;
-use OpenAI\Responses\Chat\CreateResponse; 
+use Odan\Session\SessionManagerInterface;
+
 
 final class ProjectCreator
 {
@@ -16,16 +17,20 @@ final class ProjectCreator
 
     private LoggerInterface $logger;
 
+    private SessionManagerInterface $session;
+
     public function __construct(
         ProjectRepository $repository,
         ProjectValidator $ProjectValidator,
-        LoggerFactory $loggerFactory
+        LoggerFactory $loggerFactory,
+        SessionManagerInterface $session
     ) {
         $this->repository = $repository;
         $this->ProjectValidator = $ProjectValidator;
         $this->logger = $loggerFactory
             ->addFileHandler('Project_creator.log')
             ->createLogger();
+        $this->session = $session;
     }
 
     public function createProject(array $data): string 
@@ -34,7 +39,7 @@ final class ProjectCreator
         $this->ProjectValidator->validateProject($data);
         //
         if ( !isset ($_SESSION['email'] ) ) {
-            return "Alert! Please, start you session.";
+            return "{ error : 'Alert! Please, start you session.' }";
         }
 
         $yourApiKey = $_ENV['OPENAI_KEY'];
