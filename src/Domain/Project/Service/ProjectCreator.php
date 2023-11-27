@@ -73,7 +73,8 @@ final class ProjectCreator
         Pónmelo todo en un lenguaje cercano y motivador para un público joven.  Índícame marcas de referencia de la
         competencia que hay a nivel europeo y su link a la web. Si hay presencia de redes sociales, por favor, 
         indícame qué hashtags consideras más adecuados. 
-        Recuerda que es un $proyecto y que esto lo hará un estudiante.
+        Recuerda que es un $proyecto y que esto lo hará un estudiante. Si encuentras las tecnologias mencionadas, muéstranos
+        un ejemplo de uso concreto em este proyecto.
         OPENAI_CONTENT;
 
         $response = $client->chat()->create([
