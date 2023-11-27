@@ -11,9 +11,11 @@ final class ProjectValidator
     {
         $validator = new Validator();
         //$errors = $validator->validate($data);
-
+/*
         if ($errors) {
             throw new ValidationException('Please check your input', $errors);
         }
+*/
     }
+    
 }
