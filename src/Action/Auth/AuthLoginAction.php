@@ -67,8 +67,10 @@ final class AuthLoginAction
             setcookie('rcmdAi-', $cookie, time()+60*60*24, '/', $domain, false);
 		    $error = 200;
     	    $this->session->set('sha1', $cookie);
+            $this->session->set('email', $result->email);
 		    $_SESSION['sha1'] = $cookie;
-            $_SESSION['email'] ) $result->email;
+            $_SESSION['email'] = $result->email;
+
 		    $this->session->save();
 	 	  } 
 
