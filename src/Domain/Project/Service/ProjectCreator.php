@@ -35,7 +35,7 @@ final class ProjectCreator
         $yourApiKey = $_ENV['OPENAI_EKY'];
         $client = OpenAI::client($yourApiKey);
 
-        $content <<<HEREDOC
+        $content = <<<HEREDOC
         "Actúa como un especialista en $data['perfil_ideal'] que lleva  20 años trabajando. 
         Quiero un proyecto trabajo final de grado de $data['horas'] horas de $data['perfil_alumnado'] para una empresa con 
         tamaño de $data['tamano']. El proyecto quiero que tenga impacto sostenible.  
