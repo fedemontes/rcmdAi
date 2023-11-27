@@ -92,7 +92,7 @@ final class ProjectCreator
         $Projecte['arguments']['perfil_alumn']          = $perfil_alumn;
         $Projecte['arguments']['tamano']                = "entre $menor y $mayor empleados";
         $Projecte['arguments']['sector']                = $sector;
-        $Projecte['arguments']['vision']                = $vision
+        $Projecte['arguments']['vision']                = $vision;
         $Projecte['arguments']['publico_obj']           = $publico_obj;
         $Projecte['arguments']['proyecto_obj']          = $proyecto_obj;
         $Projecte['arguments']['sostenibilidad']        = $sostenibilidad;
