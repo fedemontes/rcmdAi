@@ -39,12 +39,12 @@ final class ProjectCreator
         $proyecto           = $data['proyecto'];
         $perfil_ideal       = $data['perfil_ideal'];
         $horas              = isset ( $data['horas'] )? $data['horas'] : 300;
-        $perfil_alumm       = @$data['perfil_alumnado'];
+        $perfil_alumn       = @$data['perfil_alumnado'];
         $menor              = @intval(strtok($data['tamano'],","));
         $mayor              = @intval(strtok(","));
         $tamano             = "entre $menor y $mayor empleados";
         $sector             = $data['sector'];
-        $vision             = $data['vision'];
+        $vision             = @$data['vision'];
         $publico_obj        = $data['publico_objetivo'];
         $proyecto_obj       = $data['proyecto_objetivo'];
         $sostenibilidad     = $data['sostenibilidad'];
