@@ -28,7 +28,7 @@ final class ProjectCreator
             ->createLogger();
     }
 
-    public function createProject(array $data): CreateResponse 
+    public function createProject(array $data): string 
     {
         // Input validation
         $this->ProjectValidator->validateProject($data);
