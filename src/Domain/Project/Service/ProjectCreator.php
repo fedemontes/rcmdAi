@@ -47,7 +47,7 @@ final class ProjectCreator
         $sector             = isset ( $data['sector'] ) ? $data['sector'] : "sostenibilidad";
         $vision             = isset ($data['vision'] ) ? $data['vision'] : $sector;
         $publico_obj        = isset ($data['publico_objetivo']) ? $data['publico_objetivo'] : "hombres y mujeres de todas las edades";
-        $proyecto_obj       = isset ($data['proyecto_objetivo']) ? $data['proyecto_objetivo'] ; $vision;
+        $proyecto_obj       = isset ($data['proyecto_objetivo']) ? $data['proyecto_objetivo'] : $vision;
         $sostenibilidad     = isset ($data['sostenibilidad']) ? $data['sostenibilidad'] : $sector;
         $tecnologias        = isset ($data['tecnologias']) ? $data['tecnologias'] : "tecnologías emergentes";
 
