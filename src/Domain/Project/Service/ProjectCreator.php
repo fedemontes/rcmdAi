@@ -36,7 +36,7 @@ final class ProjectCreator
         $client = OpenAI::client($yourApiKey);
 
         $content = <<<HEREDOC
-        "Actúa como un especialista en $data['perfil_ideal'] que lleva  20 años trabajando. 
+        Actúa como un especialista en $data['perfil_ideal'] que lleva  20 años trabajando. 
         Quiero un proyecto trabajo final de grado de $data['horas'] horas de $data['perfil_alumnado'] para una empresa con 
         tamaño de $data['tamano']. El proyecto quiero que tenga impacto sostenible.  
         La empresa es del sector de la $data['sector'] y realiza $data['vision'].  
