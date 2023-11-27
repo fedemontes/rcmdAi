@@ -47,7 +47,7 @@ final class ProjectFinderAction
                 'id' => $Project->id,
                 'email' => $Project->email,
                 'descripcion' => $Project->descripcion,
-                'sector' => $Project->sector,
+                'arguments' => $Project->arguments,
             ];
         }
 	 
