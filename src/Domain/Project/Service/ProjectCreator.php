@@ -5,6 +5,7 @@ namespace App\Domain\Project\Service;
 use App\Domain\Project\Repository\ProjectRepository;
 use App\Factory\LoggerFactory;
 use Psr\Log\LoggerInterface;
+use OpenAI\Client;
 
 final class ProjectCreator
 {
