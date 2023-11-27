@@ -27,13 +27,9 @@ final class ProjectRepository
         $query->select(
             [
                 'id',
-                'number',
-                'name',
-                'street',
-                'postal_code',
-                'city',
-                'country',
                 'email',
+                'descripcion',
+                'arguments',
             ]
         );
 
@@ -75,13 +71,12 @@ final class ProjectRepository
     private function toRow(array $Project): array
     {
         return [
-            'number' => $Project['number'],
-            'name' => $Project['name'],
-            'street' => $Project['street'],
-            'postal_code' => $Project['postal_code'],
-            'city' => $Project['city'],
-            'country' => $Project['country'],
+            'id' => $Project['id'],
             'email' => $Project['email'],
+            'descripcion' => $Project['descripcion'],
+            'arguments' => $Project['arguments'],
+
+
         ];
     }
 }

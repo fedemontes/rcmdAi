@@ -92,10 +92,10 @@ if ($a) {
 
 <?php
 switch ($this->error):
-    case Shop_Customer :: ERROR_INVALID_GENDER: ?>
+    case Shop_Project :: ERROR_INVALID_GENDER: ?>
         Ung&uuml;ltiges Geschlecht!
     <?php break;
-    case Shop_Customer :: ERROR_EMAIL_IN_USE: ?>
+    case Shop_Project :: ERROR_EMAIL_IN_USE: ?>
         Die eingetragene E-Mail-Adresse ist bereits registriert.
     <?php break;
 endswitch;

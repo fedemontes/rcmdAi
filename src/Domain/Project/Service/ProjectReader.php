@@ -43,9 +43,9 @@ final class ProjectReader
         // Create domain result
         $result = new ProjectReaderResult();
         $result->id = $ProjectRow['id'];
-        $result->number = $ProjectRow['email'];
-        $result->name = $ProjectRow['descripcion'];
-        $result->street = $ProjectRow['sector'];
+        $result->email = $ProjectRow['email'];
+        $result->descripcion = $ProjectRow['descripcion'];
+        $result->arguments = $ProjectRow['arguments'];
 
         return $result;
     }

@@ -22,7 +22,7 @@ final class ProjectFinderRepository
                 'id',
                 'email',
                 'descripcion',
-                'sector',
+                'arguments',
                 
             ]
         );

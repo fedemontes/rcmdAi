@@ -13,7 +13,7 @@ final class ProjectFinderItem
 
     public ?string $descripcion = null;
 
-    public ?string $sector = null;
+    public ?string $arguments = null;
 
  
 }

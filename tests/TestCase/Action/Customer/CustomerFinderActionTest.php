@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Test\TestCase\Action\Customer;
+namespace App\Test\TestCase\Action\Project;
 
-use App\Test\Fixture\CustomerFixture;
+use App\Test\Fixture\ProjectFixture;
 use App\Test\Traits\AppTestTrait;
 use Fig\Http\Message\StatusCodeInterface;
 use PHPUnit\Framework\TestCase;
@@ -11,24 +11,24 @@ use Selective\TestTrait\Traits\DatabaseTestTrait;
 /**
  * Test.
  *
- * @coversDefaultClass \App\Action\Customer\CustomerFinderAction
+ * @coversDefaultClass \App\Action\Project\ProjectFinderAction
  */
-class CustomerFinderActionTest extends TestCase
+class ProjectFinderActionTest extends TestCase
 {
     use AppTestTrait;
     use DatabaseTestTrait;
 
-    public function testListCustomers(): void
+    public function testListProjects(): void
     {
-        $this->insertFixtures([CustomerFixture::class]);
+        $this->insertFixtures([ProjectFixture::class]);
 
-        $request = $this->createRequest('GET', '/api/customers');
+        $request = $this->createRequest('GET', '/api/Projects');
         $response = $this->app->handle($request);
 
         $this->assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         $this->assertJsonData(
             [
-                'customers' => [
+                'Projects' => [
                     [
                         'id' => 1,
                         'number' => '10000',
