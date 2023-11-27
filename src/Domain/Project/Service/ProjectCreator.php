@@ -85,7 +85,7 @@ final class ProjectCreator
         ]);
 
         $Projecte = [];
-        $Projecte['email'] = $this->session->get(email);
+        $Projecte['email'] = $this->session->get('email');
 
         $message = $response->choices[0]->message->content;
         $Projecte['descripcion']          = $message;
