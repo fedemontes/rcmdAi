@@ -33,6 +33,9 @@ final class ProjectCreator
         // Input validation
         $this->ProjectValidator->validateProject($data);
         //
+        if ( !isset ($_SESSION['email'] ) ) {
+            return "Alert! Please, start you session.";
+        }
 
         $yourApiKey = $_ENV['OPENAI_KEY'];
         $client = OpenAI::client($yourApiKey);
@@ -50,6 +53,7 @@ final class ProjectCreator
         $proyecto_obj       = isset ($data['proyecto_objetivo']) ? $data['proyecto_objetivo'] : $vision;
         $sostenibilidad     = isset ($data['sostenibilidad']) ? $data['sostenibilidad'] : $sector;
         $tecnologias        = isset ($data['tecnologias']) ? $data['tecnologias'] : "tecnologías emergentes";
+
 
         $content = <<<OPENAI_CONTENT
         Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
@@ -75,14 +79,30 @@ final class ProjectCreator
                     ],
         ]);
 
-        // Insert Project and get new Project ID
-        //$ProjectId = $this->repository->insertProject($data);
+        $Projecte = [];
+        $Projecte['email'] = isset ($_SESSION['email'] ) ? $_SESSION['email'] ? null;
 
-        // Logging
-        //$this->logger->info(sprintf('Project created successfully: %s', $ProjectId));
-       
+        $message = $response->choices[0]->message->content;
+        $Projecte['descripcion']          = $message;
+
+        $Projecte['arguments']            =  [];
+        $Projecte['arguments']['proyecto'] = $proyecto;
+        $Projecte['arguments']['perfil_ideal']          = $perfil_ideal;
+        $Projecte['arguments']['horas']                 = $horas;
+        $Projecte['arguments']['perfil_alumn']          = $perfil_alumn;
+        $Projecte['arguments']['tamano']                = "entre $menor y $mayor empleados";
+        $Projecte['arguments']['sector']                = $sector;
+        $Projecte['arguments']['vision']                = $vision
+        $Projecte['arguments']['publico_obj']           = $publico_obj;
+        $Projecte['arguments']['proyecto_obj']          = $proyecto_obj;
+        $Projecte['arguments']['sostenibilidad']        = $sostenibilidad;
+        $Projecte['arguments']['$tecnologias']          = $tecnologias;
+
+            
+        // Insert Project and get new Project ID
+        $ProjectId = $this->repository->insertProject($Projecte);
         
-         return $response;
+         return $message;
     }
         
 
