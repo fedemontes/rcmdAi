@@ -73,15 +73,17 @@ final class ProjectCreator
                     'content' => $content ],
                     ],
         ]);
-       
-        }
-         return $response;
 
         // Insert Project and get new Project ID
         //$ProjectId = $this->repository->insertProject($data);
 
         // Logging
         //$this->logger->info(sprintf('Project created successfully: %s', $ProjectId));
-
+       
+        
+         return $response;
     }
+        
+
+    
 }
