@@ -22,9 +22,11 @@
         "nyholm/psr7": "^1.4",
         "nyholm/psr7-server": "^1.0",
         "odan/session": "^6.1",
+        "openai-php/client": "^0.8.0",
         "php-di/php-di": "^7",
         "selective/basepath": "^2",
         "slim/slim": "^4",
+        "symfony/http-client": "^6.3",
         "symfony/uid": "^6",
         "tuupola/slim-jwt-auth": "^3.8"
     },
@@ -52,7 +54,8 @@
         "process-timeout": 0,
         "sort-packages": true,
         "allow-plugins": {
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "php-http/discovery": true
         }
     },
     "scripts": {
