@@ -26,11 +26,11 @@ final class ProjectCreatorAction
         $data = (array)$request->getParsedBody();
 
         // Invoke the Domain with inputs and retain the result
-        $ProjectId = $this->ProjectCreator->createProject($data);
+        $project_response = $this->ProjectCreator->createProject($data);
 
         // Build the HTTP response
         return $this->renderer
-            ->json($response, ['Project_id' => $ProjectId])
+            ->json($response, $project_response)
             ->withStatus(StatusCodeInterface::STATUS_CREATED);
     }
 }
