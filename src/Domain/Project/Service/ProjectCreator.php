@@ -47,7 +47,7 @@ final class ProjectCreator
         $proyecto_obj       = $data['proyecto_objetivo'];
         $sostenibilidad     = $data['sostenibilidad'];
 
-        $content = <<<HEREDOC
+        $content = <<<OPENAI_CONTENT
         Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
         Quiero un proyecto trabajo final de grado de $horas horas de $perfil_alumn para una empresa con 
         tamaño de $tamano. El proyecto quiero que tenga impacto sostenible.  
@@ -61,7 +61,7 @@ final class ProjectCreator
         competencia que hay a nivel europeo y su link a la web. Si hay presencia de redes sociales, por favor, 
         indícame qué hashtags consideras más adecuados. 
         Recuerda que es un trabajo final de grado y que esto lo hará un estudiante.
-        HEREDOC
+        OPENAI_CONTENT;
 
         $result = $client->chat()->create([
               'model' => 'gpt-4',
