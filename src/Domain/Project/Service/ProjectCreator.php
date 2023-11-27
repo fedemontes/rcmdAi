@@ -85,7 +85,7 @@ final class ProjectCreator
         ]);
 
         $Projecte = [];
-        $Projecte['email'] = isset ($_SESSION['email'] ) ? $_SESSION['email'] : "";
+        $Projecte['email'] = $this->session->email;
 
         $message = $response->choices[0]->message->content;
         $Projecte['descripcion']          = $message;
@@ -101,7 +101,7 @@ final class ProjectCreator
         $Projecte['arguments']['publico_obj']           = $publico_obj;
         $Projecte['arguments']['proyecto_obj']          = $proyecto_obj;
         $Projecte['arguments']['sostenibilidad']        = $sostenibilidad;
-        $Projecte['arguments']['$tecnologias']          = $tecnologias;
+        $Projecte['arguments']['tecnologias']          = $tecnologias;
 
             
         // Insert Project and get new Project ID
