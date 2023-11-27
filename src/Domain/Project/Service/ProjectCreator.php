@@ -37,7 +37,7 @@ final class ProjectCreator
 
         $proyecto           = $data['proyecto'];
         $perfil_ideal       = $data['perfil_ideal'];
-        $horas              = isset ( $data['horas'] ? $data['horas'] : 300;
+        $horas              = isset ( $data['horas'] )? $data['horas'] : 300;
         $perfil_alumm       = $data['perfil_alumnado'];
         list($menor,$mayor) = array_pad (explode("-", $data['tamano']), 2 ) ;
         $tamano             = "entre $menor y $mayor empleados";
