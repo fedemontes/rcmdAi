@@ -32,7 +32,7 @@ final class ProjectCreator
         $this->ProjectValidator->validateProject($data);
         //
 
-        $yourApiKey = $_ENV['OPENAI_EKY'];
+        $yourApiKey = $_ENV['OPENAI_KEY'];
         $client = OpenAI::client($yourApiKey);
 
         $proyecto           = $data['proyecto'];
