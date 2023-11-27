@@ -63,15 +63,15 @@ final class AuthLoginAction
 
                     $message = "Token validated. ";
                     $cookie =  hash('sha512',$_ENV['SECRET_KEY']. $result->apikey . $decode->email . time(), false) ; 
-		    $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
-            setcookie('rcmdAi-', $cookie, time()+60*60*24, '/', $domain, false);
-		    $error = 200;
-    	    $this->session->set('sha1', $cookie);
-            $this->session->set('email', $result->email);
-		    $_SESSION['sha1'] = $cookie;
-            $_SESSION['email'] = $result->email;
+                    $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
+                    setcookie('rcmdAi-', $cookie, time()+60*60*24, '/', $domain, false);
+                    $error = 200;
+                    $this->session->set('sha1', $cookie);
+                    $this->session->set('email', $result->email);
+                    $_SESSION['sha1'] = $cookie;
+                    $_SESSION['email'] = $result->email;
 
-		    $this->session->save();
+                    $this->session->save();
 	 	  } 
 
 	}
