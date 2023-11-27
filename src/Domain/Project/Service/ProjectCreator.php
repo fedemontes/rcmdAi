@@ -85,7 +85,7 @@ final class ProjectCreator
         ]);
 
         $Projecte = [];
-        $Projecte['email'] = $this->session->email;
+        $Projecte['email'] = $this->session->get(email);
 
         $message = $response->choices[0]->message->content;
         $Projecte['descripcion']          = $message;
@@ -107,7 +107,7 @@ final class ProjectCreator
         // Insert Project and get new Project ID
         $ProjectId = $this->repository->insertProject($Projecte);
         
-         return json_encode($message, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );
+         return json_encode($Projecte, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );
     }
         
 
