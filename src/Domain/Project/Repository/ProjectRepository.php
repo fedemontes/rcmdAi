@@ -71,10 +71,9 @@ final class ProjectRepository
     private function toRow(array $Project): array
     {
         return [
-            'id' => $Project['id'],
-            'email' => $Project['email'],
+            'email' => $_SESSION['email'],
             'descripcion' => $Project['descripcion'],
-            'arguments' => $Project['arguments'],
+            'arguments' => json_encode($Project['arguments'], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
 
 
         ];

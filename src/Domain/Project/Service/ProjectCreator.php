@@ -55,7 +55,7 @@ final class ProjectCreator
         Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
         Quiero un proyecto $proyecto de $horas horas de $perfil_alumn para una empresa con 
         tamaño de $tamano. El proyecto quiero que tenga impacto sostenible.  
-        La empresa es del sector de la $sector' y realiza $vision'.  
+        La empresa es del sector de la $sector'. El objetivo de la empresa es $vision'.  
         El público objetivo son $publico_obj. 
         El objetivo del proyecto es $proyecto_obj.  
         La empresa no ha hecho nada similar a esto antes. La empresa quiere utilizar $tecnologias.
