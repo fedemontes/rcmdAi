@@ -35,7 +35,7 @@ final class ProjectCreator
         $yourApiKey = $_ENV['OPENAI_EKY'];
         $client = OpenAI::client($yourApiKey);
 
-        $content <<<OPENAI_CONTENT
+        $content <<<HEREDOC
         "Actúa como un especialista en $data['perfil_ideal'] que lleva  20 años trabajando. 
         Quiero un proyecto trabajo final de grado de $data['horas'] horas de $data['perfil_alumnado'] para una empresa con 
         tamaño de $data['tamano']. El proyecto quiero que tenga impacto sostenible.  
@@ -49,7 +49,7 @@ final class ProjectCreator
         competencia que hay a nivel europeo y su link a la web. Si hay presencia de redes sociales, por favor, 
         indícame qué hashtags consideras más adecuados. 
         Recuerda que es un trabajo final de grado y que esto lo hará un estudiante.
-        OPENAI_CONTENT
+        HEREDOC
 
         $result = $client->chat()->create([
               'model' => 'gpt-4',
