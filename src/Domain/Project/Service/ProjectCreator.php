@@ -33,7 +33,7 @@ final class ProjectCreator
         $this->session = $session;
     }
 
-    public function createProject(array $data): string 
+    public function createProject(array $data): array 
     {
         // Input validation
         $this->ProjectValidator->validateProject($data);
