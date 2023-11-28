@@ -39,7 +39,8 @@ final class ProjectCreator
         $this->ProjectValidator->validateProject($data);
         //
         if ( !isset ($_SESSION['email'] ) ) {
-            return "{ error : 'Alert! Please, start you session.' }";
+            $message = array("error" => 200, "message" => "Please, start session");
+            return json_encode($message);
         }
 
         $yourApiKey = $_ENV['OPENAI_KEY'];
