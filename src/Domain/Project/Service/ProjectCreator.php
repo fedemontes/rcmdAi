@@ -54,7 +54,7 @@ final class ProjectCreator
         $mayor              = @intval(strtok(","));
         $tamano             = "entre $menor y $mayor empleados";
         $sector             = isset ( $data['sector'] ) ? $data['sector'] : "sostenibilidad";
-        $vision             = isset ($data['vision'] ) ? $data['vision'] : $sector;
+        $mision             = isset ($data['mision'] ) ? $data['mision'] : $sector;
         $publico_obj        = isset ($data['publico_objetivo']) ? $data['publico_objetivo'] : "hombres y mujeres de todas las edades";
         $proyecto_obj       = isset ($data['proyecto_objetivo']) ? $data['proyecto_objetivo'] : $vision;
         $sostenibilidad     = isset ($data['sostenibilidad']) ? $data['sostenibilidad'] : $sector;
@@ -65,7 +65,7 @@ final class ProjectCreator
         Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
         Quiero un proyecto $proyecto de $horas horas de $perfil_alumn para una empresa con 
         tamaño de $tamano. El proyecto quiero que tenga impacto sostenible.  
-        La empresa es del sector de la $sector'. El objetivo de la empresa es $vision'.  
+        La empresa es del sector de la $sector'. El objetivo de la empresa es $mision'.  
         El público objetivo son $publico_obj. 
         El objetivo del proyecto es $proyecto_obj.  
         La empresa no ha hecho nada similar a esto antes. La empresa quiere utilizar $tecnologias.
@@ -99,11 +99,11 @@ final class ProjectCreator
         $Projecte['arguments']['perfil_alumn']          = $perfil_alumn;
         $Projecte['arguments']['tamano']                = "entre $menor y $mayor empleados";
         $Projecte['arguments']['sector']                = $sector;
-        $Projecte['arguments']['vision']                = $vision;
+        $Projecte['arguments']['mision']                = $mision;
         $Projecte['arguments']['publico_obj']           = $publico_obj;
         $Projecte['arguments']['proyecto_obj']          = $proyecto_obj;
         $Projecte['arguments']['sostenibilidad']        = $sostenibilidad;
-        $Projecte['arguments']['tecnologias']          = $tecnologias;
+        $Projecte['arguments']['tecnologias']           = $tecnologias;
 
             
         // Insert Project and get new Project ID
