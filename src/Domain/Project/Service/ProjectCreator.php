@@ -109,7 +109,7 @@ final class ProjectCreator
         // Insert Project and get new Project ID
         $ProjectId = $this->repository->insertProject($Projecte);
         
-         return json_encode($Projecte, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );
+         return $Projecte;
     }
         
 
