@@ -68,7 +68,7 @@ final class ProjectCreator
         El público objetivo son $publico_obj. 
         El objetivo del proyecto es $proyecto_obj.  
         La empresa no ha hecho nada similar a esto antes. La empresa quiere utilizar $tecnologias.
-        Además también usar $sostenibilidad. Quiero que definas con contenido específico las fases del proyecto.
+        Además también quieren usar $sostenibilidad en el proyecto. Quiero que definas con contenido específico las fases del proyecto.
         Necesito una planificación aproximada. Proporcióname una orientación de KPI para evaluar el impacto del proyecto. 
         Pónmelo todo en un lenguaje cercano y motivador para un público joven.  Índícame marcas de referencia de la
         competencia que hay a nivel europeo y su link a la web. Si hay presencia de redes sociales, por favor, 
