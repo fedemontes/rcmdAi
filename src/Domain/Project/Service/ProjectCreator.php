@@ -40,7 +40,7 @@ final class ProjectCreator
         //
         if ( !isset ($_SESSION['email'] ) ) {
             $message = array("error" => 200, "message" => "Please, start session");
-            return json_encode($message);
+            return $message;
         }
 
         $yourApiKey = $_ENV['OPENAI_KEY'];
