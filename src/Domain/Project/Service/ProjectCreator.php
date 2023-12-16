@@ -39,7 +39,7 @@ final class ProjectCreator
         $this->ProjectValidator->validateProject($data);
         //
         if ( !isset ($_SESSION['email'] ) ) {
-            $message = array("error" => 200, "message" => "Please, start session");
+            $message = array("code" => 200, "message" => "Please, start session");
             return $message;
         }
 
@@ -50,8 +50,8 @@ final class ProjectCreator
         $perfil_ideal       = isset($data['perfil_ideal']) ? $data['perfil_ideal'] : "innovador";
         $horas              = isset ( $data['horas'] )? $data['horas'] : 300;
         $perfil_alumn       = isset ( $data['perfil_alumnado']) ? $data['perfil_alumnado'] : $perfil_ideal;
-        $menor              = @intval(strtok($data['tamano'],","));
-        $mayor              = @intval(strtok(","));
+        $menor              = @intval(strtok($data['tamano'],"-"));
+        $mayor              = @intval(strtok("-"));
         $tamano             = "entre $menor y $mayor empleados";
         $sector             = isset ( $data['sector'] ) ? $data['sector'] : "sostenibilidad";
         $mision             = isset ($data['mision'] ) ? $data['mision'] : $sector;
@@ -68,7 +68,8 @@ final class ProjectCreator
         La empresa es del sector de la $sector'. El objetivo de la empresa es $mision'.  
         El público objetivo son $publico_obj. 
         El objetivo del proyecto es $proyecto_obj.  
-        La empresa no ha hecho nada similar a esto antes. La empresa quiere utilizar $tecnologias.
+        La empresa no ha hecho nada similar a esto antes. La empresa quiere utilizar las tecnologías $tecnologias aunque 
+        no son imprescindibles. ¿Podrías sugerir qué tecnologías irían mejor para este proyecto?
         Además también quieren usar $sostenibilidad en el proyecto. Quiero que definas con contenido específico las fases del proyecto.
         Necesito una planificación aproximada. Proporcióname una orientación de KPI para evaluar el impacto del proyecto. 
         Pónmelo todo en un lenguaje cercano y motivador para un público joven.  Índícame marcas de referencia de la
