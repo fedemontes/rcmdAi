@@ -77,7 +77,7 @@ final class AuthLoginAction
 	}
 		 
 
-	$message = array("error" => $error, "message" => $message);
+	$message = array("code" => $error, "message" => $message);
         return [
             'apikeys' => $message 
         ];
