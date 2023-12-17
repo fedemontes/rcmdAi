@@ -81,7 +81,7 @@ final class ProjectCreator
         competencia que hay a nivel europeo y su link a la web. Si hay presencia de redes sociales, por favor, 
         indícame qué hashtags consideras más adecuados. 
         Recuerda que es un $proyecto y que esto lo hará un estudiante. Si encuentras las tecnologias mencionadas, muéstranos
-        un ejemplo de uso concreto em este proyecto.
+        un ejemplo de uso concreto em este proyecto. Recuerda ponerle un título al proyecto al principio de todo.
         OPENAI_CONTENT;
 
         $response = $client->chat()->create([
