@@ -73,16 +73,19 @@ final class ProjectCreator
         La empresa es del sector de la $sector'. El objetivo de la empresa es $mision'.  
         El público objetivo son $publico_objetivo. 
         El objetivo del proyecto es $proyecto_objetivo.  
-        La empresa $experiencia ha hecho nada similar a esto antes. La empresa quiere utilizar las tecnologías $tecnologias aunque 
-        no son imprescindibles. ¿Podrías sugerir qué tecnologías irían mejor para este proyecto?
-        Además también quieren usar $sostenibilidad en el proyecto. Quiero que definas con contenido específico las fases del proyecto.
+        La empresa $experiencia ha hecho similares a esto antes. La empresa quiere utilizar las tecnologías $tecnologias.
+        ¿Podrías sugerir qué tecnologías irían mejor para este proyecto?
+        Además también quieren usar $sostenibilidad en el proyecto. Quiero que definas con una descripción y fases del proyecto. 
+        Las fases del proyecto han de ser precisas y profundas, y además me gustaría que pongas varios ejemplos en cada una de ellas.
+        También puedes poner un ejemplo de empresa que haga algo parecido de esa fase del proyecto. 
         Necesito una planificación aproximada. Proporcióname una orientación de KPI para evaluar el impacto del proyecto. 
-        Pónmelo todo en un lenguaje cercano y motivador para un público joven.  Índícame marcas de referencia de la
+        Pónmelo todo en un lenguaje cercano y motivador para un público joven.  Indícame marcas de referencia de la
         competencia que hay a nivel europeo y su link a la web. Si hay presencia de redes sociales, por favor, 
-        indícame qué hashtags consideras más adecuados. Tienes que ser muy concreto en la parte de la implementación y explicar
-        cuáles son los objetivos.
-        Recuerda que es un $proyecto y que esto lo hará un estudiante. Si encuentras las tecnologias mencionadas, muéstranos
+        indícame qué hashtags consideras más adecuados. 
+        Recuerda que es un $proyecto. Si encuentras las tecnologias mencionadas, muéstranos
         un ejemplo de uso concreto em este proyecto. Recuerda ponerle un título al proyecto al principio de todo.
+        Ponme ejemplos de Partes del Proyecto de Interés para la Empresa en cada una de las fases. 
+        Al final de todo, por favor ponme referencias a bibliografía online que creas necesaria.
         OPENAI_CONTENT;
 
         $response = $client->chat()->create([
