@@ -57,10 +57,12 @@ final class AuthLoginAction
 	
 	$error = 401;
     $message = "Unathorized access"; 
-    
+
 	if ( $decode )
 	{
-		if ( strcmp($result->user,$decode->user) == 0 && strcmp($result->email,$decode->email) == 0 && strcmp($result->alta,$decode->alta) == 0 )
+		if ( strcmp($result->user,$decode->user) == 0 && 
+             strcmp($result->email,$decode->email) == 0 && 
+             strcmp($result->alta,$decode->alta) == 0 )
 	          {
 
                     $message = "Token validated. ";
