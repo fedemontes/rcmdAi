@@ -93,23 +93,23 @@ final class ProjectCreator
         ]);
 
         $Projecte = [];
-        $Projecte['email'] = $this->session->get('email');
 
         $message = $response->choices[0]->message->content;
-        $Projecte['descripcion']          = $message;
-
-        $Projecte['arguments']            =  [];
-        $Projecte['arguments']['proyecto'] = $proyecto;
-        $Projecte['arguments']['perfil_ideal']          = $perfil_ideal;
+        $Projecte['code']                       = 200;
+        $Projecte['descripcion']                = $message;
+        $Projecte['arguments']                  =  [];
+        $Projecte['arguments']['proyecto']      = $proyecto;
+        $Projecte['arguments']['perfil_ideal']  = $perfil_ideal;
         $Projecte['arguments']['horas']                 = $horas;
-        $Projecte['arguments']['perfil_alumn']          = $perfil_alumn;
+        $Projecte['arguments']['perfil_alumnado']          = $perfil_alumnado;
         $Projecte['arguments']['tamano']                = "entre $menor y $mayor empleados";
         $Projecte['arguments']['sector']                = $sector;
         $Projecte['arguments']['mision']                = $mision;
-        $Projecte['arguments']['publico_obj']           = $publico_obj;
-        $Projecte['arguments']['proyecto_obj']          = $proyecto_obj;
+        $Projecte['arguments']['publico_objetivo']           = $publico_objetivo;
+        $Projecte['arguments']['proyecto_objetivo']          = $proyecto_objetivo;
         $Projecte['arguments']['sostenibilidad']        = $sostenibilidad;
         $Projecte['arguments']['tecnologias']           = $tecnologias;
+        $Projecte['arguments']['experiencia']           = $experiencia;
 
             
         // Insert Project and get new Project ID
