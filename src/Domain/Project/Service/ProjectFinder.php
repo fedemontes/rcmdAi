@@ -19,7 +19,10 @@ final class ProjectFinder
     {
         // Input validation
         // ...
-
+        if ( !isset ($_SESSION['email'] ) ) {
+            $message = array("code" => 200, "message" => "Please, start session");
+            return $message;
+        }
         $Projects = $this->repository->findProjects();
 
         return $this->createResult($Projects);

@@ -28,10 +28,7 @@ final class ProjectFinderAction
     {
         // Optional: Pass parameters from the request to the service method
         // ...
-        if ( !isset ($_SESSION['email'] ) ) {
-            $message = array("code" => 200, "message" => "Please, start session");
-            return $message;
-        }
+
         $Projects = $this->ProjectFinder->findProjects();
 
         // Transform result and render to json
