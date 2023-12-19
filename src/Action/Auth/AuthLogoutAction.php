@@ -66,7 +66,7 @@ final class AuthLogoutAction
 	          {
 
                     $this->session->destroy();
-                    $message = 'Success logout'
+                    $message = 'Success logout';
 	 	      } 
 
 	}
