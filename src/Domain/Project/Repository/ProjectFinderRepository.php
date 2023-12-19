@@ -2,7 +2,10 @@
 
 namespace App\Domain\Project\Repository;
 
+
 use App\Factory\QueryFactory;
+use Odan\Session\SessionManagerInterface;
+
 
 final class ProjectFinderRepository
 {
