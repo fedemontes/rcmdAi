@@ -15,6 +15,7 @@ final class ProjectFinderRepository
 
     public function findProjects(): array
     {
+        $email = $_SESSION['email'];
         $query = $this->queryFactory->newSelect('projects');
 
         $query->select(
@@ -25,7 +26,7 @@ final class ProjectFinderRepository
                 'arguments',
                 
             ]
-        )->where(['email' => {$_SESSION['email']}]);
+        )->where(['email' => $email ]);
 
         // Add more "use case specific" conditions to the query
         // ...
