@@ -25,7 +25,7 @@ final class ProjectFinderRepository
                 'arguments',
                 
             ]
-        );
+        )->where(['email' => $_SESSION['email']]);
 
         // Add more "use case specific" conditions to the query
         // ...
