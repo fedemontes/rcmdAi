@@ -14,6 +14,7 @@ return function (App $app)  {
 
     // API
     $app->get('/api/v1/auth/login', \App\Action\Auth\AuthLoginAction::class);
+    $app->get('/api/v1/auth/logout', \App\Action\Auth\AuthLogoutAction::class);
     $app->group(
         '/api/v1',
         function (RouteCollectorProxy $app) {
