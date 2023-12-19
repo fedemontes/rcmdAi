@@ -56,7 +56,7 @@ final class AuthLoginAction
 
 	
 	$error = 401;
-    $message = "Unathorized access"; 
+    $message = "Unauthorized access"; 
 
 	if ( $decode )
 	{
