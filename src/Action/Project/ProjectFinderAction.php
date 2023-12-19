@@ -30,7 +30,7 @@ final class ProjectFinderAction
         // ...
         if ( !isset ($_SESSION['email'] ) ) {
             $message = array("code" => 200, "message" => "Please, start session");
-            return $this->renderer->json($message);
+            return $this->renderer->json($response, $message);
         }
         $Projects = $this->ProjectFinder->findProjects();
 
