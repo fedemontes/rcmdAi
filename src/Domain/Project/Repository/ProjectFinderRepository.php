@@ -15,6 +15,7 @@ final class ProjectFinderRepository
 
     public function findProjects(): array
     {
+
         $email = $_SESSION['email'];
         $query = $this->queryFactory->newSelect('projects');
 
