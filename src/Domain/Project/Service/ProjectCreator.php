@@ -57,6 +57,7 @@ final class ProjectCreator
             $menor = 0;
             $mayor = 100;
         }
+        
         $tamano             = "entre $menor y $mayor empleados";
         $sector             = isset ( $data['sector'] ) ? $data['sector'] : "sostenibilidad";
         $mision             = isset ($data['mision'] ) ? $data['mision'] : $sector;
@@ -64,7 +65,8 @@ final class ProjectCreator
         $proyecto_objetivo  = isset ($data['proyecto_objetivo']) ? $data['proyecto_objetivo'] : $vision;
         $sostenibilidad     = isset ($data['sostenibilidad']) ? $data['sostenibilidad'] : $sector;
         $tecnologias        = isset ($data['tecnologias']) ? $data['tecnologias'] : "tecnologías emergentes";
-        $experiencia        = isset ($data['experiencia'] ? $data['experiencia'] == true ? "sí" : "no" : "no");
+        $experiencia         = isset ($data['experiencia']) ? "no" : "no";
+        $experiencia        = $data['experiencia'] == true ? "sí" : "no";
 
         $content = <<<OPENAI_CONTENT
         Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
