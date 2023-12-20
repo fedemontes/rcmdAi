@@ -50,7 +50,7 @@ final class ProjectCreator
         $perfil_ideal       = isset($data['perfil_ideal']) ? $data['perfil_ideal'] : "innovador";
         $horas              = isset ( $data['horas'] )? $data['horas'] : 300;
         $perfil_alumnado    = isset ( $data['perfil_alumnado']) ? $data['perfil_alumnado'] : $perfil_ideal;
-        if ( str_contains($data['tamano'], "-") ) {
+        if ( isset($data['tamano'] ) && str_contains($data['tamano'], "-") ) {
             $menor              = @intval(strtok($data['tamano'],"-"));
             $mayor              = @intval(strtok("-"));
         } else {
@@ -62,7 +62,7 @@ final class ProjectCreator
         $sector             = isset ( $data['sector'] ) ? $data['sector'] : "sostenibilidad";
         $mision             = isset ($data['mision'] ) ? $data['mision'] : $sector;
         $publico_objetivo   = isset ($data['publico_objetivo']) ? $data['publico_objetivo'] : "hombres y mujeres de todas las edades";
-        $proyecto_objetivo  = isset ($data['proyecto_objetivo']) ? $data['proyecto_objetivo'] : $vision;
+        $proyecto_objetivo  = isset ($data['proyecto_objetivo']) ? $data['proyecto_objetivo'] : $mision;
         $sostenibilidad     = isset ($data['sostenibilidad']) ? $data['sostenibilidad'] : $sector;
         $tecnologias        = isset ($data['tecnologias']) ? $data['tecnologias'] : "tecnologías emergentes";
         $experiencia        = isset ($data['experiencia']) ? $data['experiencia'] : "no";
