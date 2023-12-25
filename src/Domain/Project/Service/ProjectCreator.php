@@ -50,6 +50,7 @@ final class ProjectCreator
         $perfil_ideal       = isset($data['perfil_ideal']) ? $data['perfil_ideal'] : "innovador";
         $horas              = isset ( $data['horas'] )? $data['horas'] : 300;
         $perfil_alumnado    = isset ( $data['perfil_alumnado']) ? $data['perfil_alumnado'] : $perfil_ideal;
+        
         if ( isset($data['tamano'] ) && str_contains($data['tamano'],"-") ) {
             $menor              = @intval(strtok($data['tamano'],"-"));
             $mayor              = @intval(strtok("-"));
@@ -117,8 +118,8 @@ final class ProjectCreator
         $Projecte['arguments']['sostenibilidad']        = $sostenibilidad;
         $Projecte['arguments']['tecnologias']           = $tecnologias;
         $Projecte['arguments']['experiencia']           = $experiencia;
+        $Projecte['data']                               = $data;
 
-            
         // Insert Project and get new Project ID
         $ProjectId = $this->repository->insertProject($Projecte);
         
