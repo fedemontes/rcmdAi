@@ -62,6 +62,9 @@ final class ProjectCreator
         Al final de todo, por favor ponme referencias a bibliografía online que creas necesaria.
         OPENAI_CONTENT;
 
+        $yourApiKey = $_ENV['OPENAI_KEY'];
+        $client = OpenAI::client($yourApiKey);
+        
         $response = $client->chat()->create([
               'model' => 'gpt-3.5-turbo-1106',
                  'messages' => [
@@ -86,8 +89,6 @@ final class ProjectCreator
             return $message;
         }
 
-        $yourApiKey = $_ENV['OPENAI_KEY'];
-        $client = OpenAI::client($yourApiKey);
   
         $proyecto           = isset($data['trabajo']) ? $data['trabajo'] : "Trabajo final de Grado";
         $perfil_ideal       = isset($data['perfil_ideal']) ? $data['perfil_ideal'] : "innovador";
