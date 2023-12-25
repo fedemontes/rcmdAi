@@ -53,7 +53,7 @@ final class ProjectCreator
         $tamano             = isset($data['empleados']) ? $data['empleados'] : "0-100";
 
         if ( str_contains($tamano,"-") ) {
-            $menor              = @intval(strtok($data['tamano'],"-"));
+            $menor              = @intval(strtok($tamano,"-"));
             $mayor              = @intval(strtok("-"));
         } else {
             $menor = 0;
