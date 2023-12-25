@@ -50,8 +50,9 @@ final class ProjectCreator
         $perfil_ideal       = isset($data['perfil_ideal']) ? $data['perfil_ideal'] : "innovador";
         $horas              = isset ( $data['horas'] )? $data['horas'] : 300;
         $perfil_alumnado    = isset ( $data['perfil_alumnado']) ? $data['perfil_alumnado'] : $perfil_ideal;
-        $tamano             = isset($data['tamano']) ? $data['tamano'] : "0-100";
-        if ( str_contains($data['tamano'],"-") ) {
+        $tamano             = isset($data['empleados']) ? $data['empleados'] : "0-100";
+
+        if ( str_contains($tamano,"-") ) {
             $menor              = @intval(strtok($data['tamano'],"-"));
             $mayor              = @intval(strtok("-"));
         } else {
@@ -67,7 +68,7 @@ final class ProjectCreator
         $sostenibilidad     = isset ($data['sostenibilidad']) ? $data['sostenibilidad'] : $sector;
         $tecnologias        = isset ($data['tecnologias']) ? $data['tecnologias'] : "tecnologías emergentes";
         $experiencia        = isset ($data['experiencia']) ? $data['experiencia'] : "no";
-        $experiencia        = $experiencia == "false" ? "sí" : "no";
+        $experiencia        = $experiencia == "false" ? "no" : "sí";
 
         $content = <<<OPENAI_CONTENT
         Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
