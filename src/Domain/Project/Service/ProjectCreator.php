@@ -33,6 +33,49 @@ final class ProjectCreator
         $this->session = $session;
     }
 
+    private function generateGPTProject (
+            string $proyecto,string $perfil_ideal, string $horas,
+            string $perfil_alumnado, string $tamano, string $sector, string $mision, string $publico_objetivo,
+            string $proyecto_objetivo,string $sostenibilidad, string $tecnologias, string $experiencia) 
+    {
+
+        $content = <<<OPENAI_CONTENT
+        Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
+        Quiero un proyecto $proyecto de $horas horas de $perfil_alumnado para una empresa con 
+        tamaño de $tamano. El proyecto quiero que tenga impacto sostenible.  
+        La empresa es del sector de la $sector'. El objetivo de la empresa es $mision'.  
+        El público objetivo son $publico_objetivo. 
+        El objetivo del proyecto es $proyecto_objetivo.  
+        La empresa $experiencia ha hecho similares a esto antes. La empresa quiere utilizar las tecnologías $tecnologias.
+        ¿Podrías sugerir qué tecnologías irían mejor para este proyecto?
+        Además también quieren usar $sostenibilidad en el proyecto. Quiero que definas con una descripción y fases del proyecto. 
+        Las fases del proyecto han de ser precisas y profundas, y además me gustaría que pongas varios 
+        ejemplos de interés para la empresa en cada una de ellas.
+        También puedes poner un ejemplo de empresa que haga algo parecido de esa fase del proyecto. 
+        Necesito una planificación aproximada. Proporcióname una orientación de KPI para evaluar el impacto del proyecto. 
+        Pónmelo todo en un lenguaje cercano y motivador para un público joven.  Indícame marcas de referencia de la
+        competencia que hay a nivel europeo y su link a la web. Si hay presencia de redes sociales, por favor, 
+        indícame qué hashtags consideras más adecuados. 
+        Recuerda que es un $proyecto. Si encuentras las tecnologias mencionadas, muéstranos
+        un ejemplo de uso concreto em este proyecto. Recuerda ponerle un título al proyecto al principio de todo.
+        Ponme ejemplos de Partes del Proyecto de Interés para la Empresa en cada una de las fases. 
+        Al final de todo, por favor ponme referencias a bibliografía online que creas necesaria.
+        OPENAI_CONTENT;
+
+        $response = $client->chat()->create([
+              'model' => 'gpt-3.5-turbo-1106',
+                 'messages' => [
+                    ['role' => 'user', 
+                    'content' => $content ],
+                    ],
+        ]);
+
+        $Projecte = [];
+
+        $message = $response->choices[0]->message->content;
+        return $message;
+    }
+
     public function createProject(array $data): array 
     {
         // Input validation
@@ -70,40 +113,10 @@ final class ProjectCreator
         $experiencia        = isset ($data['experiencia']) ? $data['experiencia'] : "no";
         $experiencia        = $experiencia == "false" ? "no" : "sí";
 
-        $content = <<<OPENAI_CONTENT
-        Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
-        Quiero un proyecto $proyecto de $horas horas de $perfil_alumnado para una empresa con 
-        tamaño de $tamano. El proyecto quiero que tenga impacto sostenible.  
-        La empresa es del sector de la $sector'. El objetivo de la empresa es $mision'.  
-        El público objetivo son $publico_objetivo. 
-        El objetivo del proyecto es $proyecto_objetivo.  
-        La empresa $experiencia ha hecho similares a esto antes. La empresa quiere utilizar las tecnologías $tecnologias.
-        ¿Podrías sugerir qué tecnologías irían mejor para este proyecto?
-        Además también quieren usar $sostenibilidad en el proyecto. Quiero que definas con una descripción y fases del proyecto. 
-        Las fases del proyecto han de ser precisas y profundas, y además me gustaría que pongas varios 
-        ejemplos de interés para la empresa en cada una de ellas.
-        También puedes poner un ejemplo de empresa que haga algo parecido de esa fase del proyecto. 
-        Necesito una planificación aproximada. Proporcióname una orientación de KPI para evaluar el impacto del proyecto. 
-        Pónmelo todo en un lenguaje cercano y motivador para un público joven.  Indícame marcas de referencia de la
-        competencia que hay a nivel europeo y su link a la web. Si hay presencia de redes sociales, por favor, 
-        indícame qué hashtags consideras más adecuados. 
-        Recuerda que es un $proyecto. Si encuentras las tecnologias mencionadas, muéstranos
-        un ejemplo de uso concreto em este proyecto. Recuerda ponerle un título al proyecto al principio de todo.
-        Ponme ejemplos de Partes del Proyecto de Interés para la Empresa en cada una de las fases. 
-        Al final de todo, por favor ponme referencias a bibliografía online que creas necesaria.
-        OPENAI_CONTENT;
-
-        $response = $client->chat()->create([
-              'model' => 'gpt-3.5-turbo-1106',
-                 'messages' => [
-                    ['role' => 'user', 
-                    'content' => $content ],
-                    ],
-        ]);
-
-        $Projecte = [];
-
-        $message = $response->choices[0]->message->content;
+        $message = $this->generateGPTProject($proyecto,$perfil_ideal,$horas,
+                                  $perfil_alumnado,$tamano,$sector,$mision,$publico_objetivo,
+                                  $proyecto_objetivo,$sostenibilidad,$tecnologias,$experiencia);
+        
         $Projecte['code']                       = 200;
         $Projecte['descripcion']                = $message;
         $Projecte['arguments']                  =  [];
