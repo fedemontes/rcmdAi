@@ -43,7 +43,7 @@ final class ProjectCreator
         Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
         Quiero un proyecto $proyecto de $horas horas de $perfil_alumnado para una empresa con 
         tamaño de $tamano. El proyecto quiero que tenga impacto sostenible. La innovación del proyecto según
-        Doblin sería: $doblin. 
+        Doblin será: $doblin. 
         La empresa es del sector de la $sector'. El objetivo de la empresa es $mision'.  
         El público objetivo son $publico_objetivo. 
         El objetivo del proyecto es $proyecto_objetivo.  
@@ -58,7 +58,7 @@ final class ProjectCreator
         competencia que hay a nivel europeo y su link a la web. Si hay presencia de redes sociales, por favor, 
         indícame qué hashtags consideras más adecuados. 
         Recuerda que es un $proyecto. Si encuentras las tecnologias mencionadas, muéstranos
-        un ejemplo de uso concreto em este proyecto. Recuerda ponerle un título al proyecto al principio de todo.
+        un ejemplo de uso concreto en este proyecto. Recuerda ponerle un título al proyecto al principio de todo.
         Ponme ejemplos de Partes del Proyecto de Interés para la Empresa en cada una de las fases. 
         Al final de todo, por favor ponme referencias a bibliografía online que creas necesaria.
         OPENAI_CONTENT;
