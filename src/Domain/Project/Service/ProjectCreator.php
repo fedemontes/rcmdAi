@@ -93,8 +93,7 @@ final class ProjectCreator
         $doblin             = isset($data['doblin']) ? $data['doblin'] : "Innovación de Oferta";
         $proyecto           = isset($data['trabajo']) ? $data['trabajo'] : "Trabajo final de Grado";
         $perfil_ideal       = isset($data['perfil_ideal']) ? $data['perfil_ideal'] : "innovador";
-        $horas              = isset ( $data['horas'] )? intval($data['horas']) : 300;
-        $perfil_alumnado    = isset ( $data['perfil_alumnado']) ? $data['perfil_alumnado'] : $perfil_ideal;
+        $perfil_alumnado    = isset($data['perfil_alumnado']) ? $data['perfil_alumnado'] : $perfil_ideal;
         $tamano             = isset($data['empleados']) ? $data['empleados'] : "0-100";
 
         if ( str_contains($tamano,"-") ) {
@@ -134,6 +133,7 @@ final class ProjectCreator
         $Projecte['arguments']['proyecto_objetivo']     = $proyecto_objetivo;
         $Projecte['arguments']['sostenibilidad']        = $sostenibilidad;
         $Projecte['arguments']['tecnologias']           = $tecnologias;
+        $Projecte['arguments']['experiencia']           = $experiencia;
         $Projecte['arguments']['experiencia']           = $experiencia;
         $Projecte['data']                               = $data;
 
