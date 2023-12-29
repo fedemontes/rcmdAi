@@ -42,7 +42,8 @@ final class ProjectCreator
         $content = <<<OPENAI_CONTENT
         Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
         Quiero un proyecto $proyecto de $horas horas de $perfil_alumnado para una empresa con 
-        tamaño de $tamano. El proyecto quiero que tenga impacto sostenible.  
+        tamaño de $tamano. El proyecto quiero que tenga impacto sostenible. La innovación del proyecto según
+        Doblin sería: $doblin. 
         La empresa es del sector de la $sector'. El objetivo de la empresa es $mision'.  
         El público objetivo son $publico_objetivo. 
         El objetivo del proyecto es $proyecto_objetivo.  
@@ -89,7 +90,7 @@ final class ProjectCreator
             return $message;
         }
 
-  
+        $doblin             = isset($data['doblin']) ? $data['doblin'] : "Innovación de Oferta";
         $proyecto           = isset($data['trabajo']) ? $data['trabajo'] : "Trabajo final de Grado";
         $perfil_ideal       = isset($data['perfil_ideal']) ? $data['perfil_ideal'] : "innovador";
         $horas              = isset ( $data['horas'] )? intval($data['horas']) : 300;
