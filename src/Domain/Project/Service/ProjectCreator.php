@@ -36,17 +36,18 @@ final class ProjectCreator
     private function generateGPTProject (
             string $doblin,string $proyecto,string $perfil_ideal, string $horas,
             string $perfil_alumnado, string $tamano, string $sector, string $mision, string $publico_objetivo,
-            string $proyecto_objetivo,string $sostenibilidad, string $tecnologias, string $experiencia) 
+            string $extra,string $proyecto_objetivo,string $sostenibilidad, string $tecnologias,
+            string $experiencia) 
     {
 
         $content = <<<OPENAI_CONTENT
         Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
-        Quiero un proyecto $proyecto de $horas horas de $perfil_alumnado para una empresa con 
+        Quiero un proyecto de $horas horas para una empresa con 
         tamaño de $tamano. El proyecto quiero que tenga impacto sostenible. La innovación del proyecto según
-        Doblin será: $doblin. 
+        Doblin será: $doblin. El proyecto es solo para una persona con un solo perfil.
         La empresa es del sector de la $sector'. El objetivo de la empresa es $mision'.  
-        El público objetivo son $publico_objetivo. 
-        El objetivo del proyecto es $proyecto_objetivo.  
+        Los stakeholders del proyecto son $publico_objetivo. 
+        Los retos a los que se enfrenta el proyecto son $proyecto_objetivo.  
         La empresa $experiencia ha hecho similares a esto antes. La empresa quiere utilizar las tecnologías $tecnologias.
         ¿Podrías sugerir qué tecnologías irían mejor para este proyecto?
         Además también quieren usar $sostenibilidad en el proyecto. Quiero que definas con una descripción y fases del proyecto. 
@@ -57,10 +58,11 @@ final class ProjectCreator
         Pónmelo todo en un lenguaje cercano y motivador para un público joven.  Indícame marcas de referencia de la
         competencia que hay a nivel europeo y su link a la web. Si hay presencia de redes sociales, por favor, 
         indícame qué hashtags consideras más adecuados. 
-        Recuerda que es un $proyecto. Si encuentras las tecnologias mencionadas, muéstranos
+        Si encuentras las tecnologias mencionadas, muéstranos
         un ejemplo de uso concreto en este proyecto. Recuerda ponerle un título al proyecto al principio de todo.
         Ponme ejemplos de Partes del Proyecto de Interés para la Empresa en cada una de las fases. 
         Al final de todo, por favor ponme referencias a bibliografía online que creas necesaria.
+        Tienes que tener en cuenta que: $extra.
         OPENAI_CONTENT;
 
         $yourApiKey = $_ENV['OPENAI_KEY'];
@@ -91,7 +93,6 @@ final class ProjectCreator
         }
 
         $doblin             = isset($data['doblin']) ? $data['doblin'] : "Innovación de Oferta";
-        $proyecto           = isset($data['trabajo']) ? $data['trabajo'] : "Trabajo final de Grado";
         $perfil_ideal       = isset($data['perfil_ideal']) ? $data['perfil_ideal'] : "innovador";
         $perfil_alumnado    = isset($data['perfil_alumnado']) ? $data['perfil_alumnado'] : $perfil_ideal;
         $tamano             = isset($data['empleados']) ? $data['empleados'] : "0-100";
@@ -105,17 +106,19 @@ final class ProjectCreator
         }
         
         $tamano             = "entre $menor y $mayor empleados";
+        $horas              = 360;
         $sector             = isset ( $data['sector'] ) ? $data['sector'] : "sostenibilidad";
         $mision             = isset ($data['mision'] ) ? $data['mision'] : $sector;
-        $publico_objetivo   = isset ($data['publico_objetivo']) ? $data['publico_objetivo'] : "hombres y mujeres de todas las edades";
-        $proyecto_objetivo  = isset ($data['proyecto_objetivo']) ? $data['proyecto_objetivo'] : $mision;
+        $publico_objetivo   = isset ($data['publico_objetivo']) ? $data['publico_objetivo'] : "proveedores, clientes y alianzas estratégicas";
+        $proyecto_objetivo  = isset ($data['proyecto_objetivo']) ? $data['proyecto_objetivo'] : "ser innovador";
         $sostenibilidad     = isset ($data['sostenibilidad']) ? $data['sostenibilidad'] : $sector;
         $tecnologias        = isset ($data['tecnologias']) ? $data['tecnologias'] : "tecnologías emergentes";
+        $extra              = isset ($data['extra']) ? $data['extra'] : "es un proyecto estudiantil";
         $experiencia        = isset ($data['experiencia']) ? $data['experiencia'] : "no";
         $experiencia        = $experiencia == "false" ? "no" : "sí";
 
         $message = $this->generateGPTProject($doblin,$proyecto,$perfil_ideal,$horas,
-                                  $perfil_alumnado,$tamano,$sector,$mision,$publico_objetivo,
+                                  $perfil_alumnado,$tamano,$sector,$mision,$publico_objetivo,$extra,
                                   $proyecto_objetivo,$sostenibilidad,$tecnologias,$experiencia);
         
         $Projecte['code']                               = 200;
@@ -134,7 +137,7 @@ final class ProjectCreator
         $Projecte['arguments']['sostenibilidad']        = $sostenibilidad;
         $Projecte['arguments']['tecnologias']           = $tecnologias;
         $Projecte['arguments']['experiencia']           = $experiencia;
-        $Projecte['arguments']['experiencia']           = $experiencia;
+        $Projecte['arguments']['extra']                 = $extra;
         $Projecte['data']                               = $data;
 
         // Insert Project and get new Project ID
