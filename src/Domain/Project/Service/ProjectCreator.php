@@ -107,7 +107,7 @@ final class ProjectCreator
         
         $tamano             = "entre $menor y $mayor empleados";
         $horas              = 360;
-        $sector             = isset ( $data['sector'] ) ? $data['sector'] : "sostenibilidad";
+        $sector             = isset ($data['sector'] ) ? $data['sector'] : "sostenibilidad";
         $mision             = isset ($data['mision'] ) ? $data['mision'] : $sector;
         $publico_objetivo   = isset ($data['publico_objetivo']) ? $data['publico_objetivo'] : "proveedores, clientes y alianzas estratégicas";
         $proyecto_objetivo  = isset ($data['proyecto_objetivo']) ? $data['proyecto_objetivo'] : "ser innovador";
@@ -124,7 +124,6 @@ final class ProjectCreator
         $Projecte['code']                               = 200;
         $Projecte['descripcion']                        = $message;
         $Projecte['arguments']                          =  [];
-        $Projecte['arguments']['proyecto']              = $proyecto;
         $Projecte['arguments']['doblin']                = $doblin;
         $Projecte['arguments']['perfil_ideal']          = $perfil_ideal;
         $Projecte['arguments']['horas']                 = $horas;
