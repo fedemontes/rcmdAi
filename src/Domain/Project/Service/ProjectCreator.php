@@ -34,7 +34,7 @@ final class ProjectCreator
     }
 
     private function generateGPTProject (
-            string $proyecto,string $perfil_ideal, string $horas,
+            string $doblin,string $proyecto,string $perfil_ideal, string $horas,
             string $perfil_alumnado, string $tamano, string $sector, string $mision, string $publico_objetivo,
             string $proyecto_objetivo,string $sostenibilidad, string $tecnologias, string $experiencia) 
     {
@@ -115,22 +115,23 @@ final class ProjectCreator
         $experiencia        = isset ($data['experiencia']) ? $data['experiencia'] : "no";
         $experiencia        = $experiencia == "false" ? "no" : "sí";
 
-        $message = $this->generateGPTProject($proyecto,$perfil_ideal,$horas,
+        $message = $this->generateGPTProject($doblin,$proyecto,$perfil_ideal,$horas,
                                   $perfil_alumnado,$tamano,$sector,$mision,$publico_objetivo,
                                   $proyecto_objetivo,$sostenibilidad,$tecnologias,$experiencia);
         
-        $Projecte['code']                       = 200;
-        $Projecte['descripcion']                = $message;
-        $Projecte['arguments']                  =  [];
-        $Projecte['arguments']['proyecto']      = $proyecto;
-        $Projecte['arguments']['perfil_ideal']  = $perfil_ideal;
+        $Projecte['code']                               = 200;
+        $Projecte['descripcion']                        = $message;
+        $Projecte['arguments']                          =  [];
+        $Projecte['arguments']['proyecto']              = $proyecto;
+        $Projecte['arguments']['doblin']                = $doblin;
+        $Projecte['arguments']['perfil_ideal']          = $perfil_ideal;
         $Projecte['arguments']['horas']                 = $horas;
-        $Projecte['arguments']['perfil_alumnado']          = $perfil_alumnado;
+        $Projecte['arguments']['perfil_alumnado']       = $perfil_alumnado;
         $Projecte['arguments']['tamano']                = "entre $menor y $mayor empleados";
         $Projecte['arguments']['sector']                = $sector;
         $Projecte['arguments']['mision']                = $mision;
-        $Projecte['arguments']['publico_objetivo']           = $publico_objetivo;
-        $Projecte['arguments']['proyecto_objetivo']          = $proyecto_objetivo;
+        $Projecte['arguments']['publico_objetivo']      = $publico_objetivo;
+        $Projecte['arguments']['proyecto_objetivo']     = $proyecto_objetivo;
         $Projecte['arguments']['sostenibilidad']        = $sostenibilidad;
         $Projecte['arguments']['tecnologias']           = $tecnologias;
         $Projecte['arguments']['experiencia']           = $experiencia;
