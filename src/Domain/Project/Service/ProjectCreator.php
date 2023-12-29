@@ -34,7 +34,7 @@ final class ProjectCreator
     }
 
     private function generateGPTProject (
-            string $doblin,string $proyecto,string $perfil_ideal, string $horas,
+            string $doblin, string $perfil_ideal, string $horas,
             string $perfil_alumnado, string $tamano, string $sector, string $mision, string $publico_objetivo,
             string $extra,string $proyecto_objetivo,string $sostenibilidad, string $tecnologias,
             string $experiencia) 
@@ -117,7 +117,7 @@ final class ProjectCreator
         $experiencia        = isset ($data['experiencia']) ? $data['experiencia'] : "no";
         $experiencia        = $experiencia == "false" ? "no" : "sí";
 
-        $message = $this->generateGPTProject($doblin,$proyecto,$perfil_ideal,$horas,
+        $message = $this->generateGPTProject($doblin,$perfil_ideal,$horas,
                                   $perfil_alumnado,$tamano,$sector,$mision,$publico_objetivo,$extra,
                                   $proyecto_objetivo,$sostenibilidad,$tecnologias,$experiencia);
         
