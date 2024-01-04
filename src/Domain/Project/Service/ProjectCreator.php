@@ -44,7 +44,7 @@ final class ProjectCreator
         Actúa como un especialista en $perfil_ideal que lleva  20 años trabajando. 
         Quiero un proyecto de $horas horas para una empresa con 
         tamaño de $tamano. El proyecto quiero que tenga impacto sostenible. La innovación del proyecto según
-        Doblin será: $doblin. El proyecto es solo para una persona con un solo perfil.
+        Doblin será: $doblin. El proyecto es para 1 persona con un solo perfil.
         La empresa es del sector de la $sector'. El objetivo de la empresa es $mision'.  
         Los stakeholders del proyecto son $publico_objetivo. 
         Los retos a los que se enfrenta el proyecto son $proyecto_objetivo.  
@@ -106,7 +106,7 @@ final class ProjectCreator
         }
         
         $tamano             = "entre $menor y $mayor empleados";
-        $horas              = 360;
+        $horas              = "360";
         $sector             = isset ($data['sector'] ) ? $data['sector'] : "sostenibilidad";
         $mision             = isset ($data['mision'] ) ? $data['mision'] : $sector;
         $publico_objetivo   = isset ($data['publico_objetivo']) ? $data['publico_objetivo'] : "proveedores, clientes y alianzas estratégicas";
@@ -121,7 +121,7 @@ final class ProjectCreator
                                   $perfil_alumnado,$tamano,$sector,$mision,$publico_objetivo,$extra,
                                   $proyecto_objetivo,$sostenibilidad,$tecnologias,$experiencia);
         
-        $Projecte['code']                               = 200;
+        $Projecte['code']                               = "200";
         $Projecte['descripcion']                        = $message;
         $Projecte['arguments']                          =  [];
         $Projecte['arguments']['doblin']                = $doblin;
