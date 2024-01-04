@@ -55,7 +55,7 @@ final class AuthLoginAction
 	$decode = JWT::decode($result->apikey,$_ENV['SECRET_JWT'], ["HS256", "HS512", "HS384", "RS256"] );
 
 	
-	$error = 401;
+	$error = "401";
     $message = "Unauthorized access"; 
 
 	if ( $decode )
@@ -69,7 +69,7 @@ final class AuthLoginAction
                     $cookie =  hash('sha512',$_ENV['SECRET_KEY']. $result->apikey . $decode->email . time(), false) ; 
                     $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
                     setcookie('rcmdAi-', $cookie, time()+60*60*24, '/', $domain, false);
-                    $error = 200;
+                    $error = "200";
                     $this->session->set('sha1', $cookie);
                     $this->session->set('email', $result->email);
                     $_SESSION['sha1'] = $cookie;
