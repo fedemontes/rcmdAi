@@ -22,7 +22,7 @@
         "nyholm/psr7": "^1.4",
         "nyholm/psr7-server": "^1.0",
         "odan/session": "^6.1",
-        "openai-php/client": "^0.8.0",
+        "openai-php/client": "^0.9.2",
         "php-di/php-di": "^7",
         "selective/basepath": "^2",
         "slim/slim": "^4",
