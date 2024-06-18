@@ -27,7 +27,7 @@
         "selective/basepath": "^2",
         "slim/slim": "^4",
         "symfony/http-client": "^6.3",
-        "symfony/uid": "^6",
+        "symfony/uid": "^7",
         "tuupola/slim-jwt-auth": "^3.8"
     },
     "require-dev": {
