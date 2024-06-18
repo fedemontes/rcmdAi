@@ -26,7 +26,7 @@
         "php-di/php-di": "^7",
         "selective/basepath": "^2",
         "slim/slim": "^4",
-        "symfony/http-client": "^6.3",
+        "symfony/http-client": "^7.1",
         "symfony/uid": "^6",
         "tuupola/slim-jwt-auth": "^3.8"
     },
